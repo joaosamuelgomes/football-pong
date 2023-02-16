@@ -3,7 +3,7 @@ import pygame
 pygame.init()
 
 window = pygame.display.set_mode([1280, 720])
-title = pygame.display.set_caption("Pong")
+pygame.display.set_caption("Pong")
 
 win = pygame.image.load("assets/win.png")
 
@@ -11,8 +11,6 @@ score_player_1 = 0
 score_player_1_img = pygame.image.load("assets/score/0.png")
 score_player_2 = 0
 score_player_2_img = pygame.image.load("assets/score/0.png")
-
-
 
 field = pygame.image.load("assets/field.png")
 player_1 = pygame.image.load("assets/player1.png")
@@ -24,7 +22,6 @@ player_1_y = 290
 player_1_moveup = False
 player_1_movedown = False
 
-
 player_2_x = 1150
 player_2_y = 290
 
@@ -33,6 +30,7 @@ ball_y = 337
 
 ball_direction = -10
 ball_direction_y = 1
+
 
 def ball_movement():
     global ball_x
@@ -67,14 +65,14 @@ def ball_movement():
         ball_direction_y *= -1
         ball_direction *= -1
         score_player_2 += 1
-        score_player_2_img = pygame.image.load("assets/score/"+str(score_player_2)+".png")
+        score_player_2_img = pygame.image.load("assets/score/" + str(score_player_2) + ".png")
     elif ball_x > 1320:
         ball_x = 617
         ball_y = 337
         ball_direction_y *= -1
         ball_direction *= -1
         score_player_1 += 1
-        score_player_1_img = pygame.image.load("assets/score/"+str(score_player_1)+".png")
+        score_player_1_img = pygame.image.load("assets/score/" + str(score_player_1) + ".png")
 
 
 def player_movement():
@@ -94,6 +92,7 @@ def player_movement():
         player_1_y = 0
     elif player_1_y >= 575:
         player_1_y = 575
+
 
 def player_2_movement():
     global player_2_y
@@ -120,7 +119,6 @@ def draw():
         window.blit(win, (300, 330))
 
 
-
 loop = True
 
 while loop:
@@ -140,6 +138,5 @@ while loop:
                 player_1_movedown = False
 
     draw()
-
 
     pygame.display.update()
